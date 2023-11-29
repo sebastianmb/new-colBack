@@ -81,7 +81,7 @@ DATABASES = {
         'PORT':'3306',
         'USER':'root',
         'PASSWORD':'Patrimonio2020_',
-        'NAME': 'noticias_project',
+        'NAME': 'api_noticias',
         'OPTIONS':{
             'init_command':"SET sql_mode='STRICT_TRANS_TABLES'"
         }
