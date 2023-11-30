@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 class Category(models.Model):
     name = models.CharField(max_length=100)
 
@@ -12,9 +11,15 @@ class News(models.Model):
     content = models.TextField()
     author = models.CharField(max_length=100)
     published_date = models.DateTimeField()
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    
+    # Opciones para la categoría
+    POLITICS = 'politics'
+    SPORTS = 'sports'
+    TECH = 'tech'
+    
+ 
     tags = models.CharField(max_length=255, blank=True)
-    image = models.ImageField(upload_to='news_images/')  # Campo para la imagen
+    image = models.ImageField(upload_to='news_images/')
 
     def __str__(self):
         return self.title
