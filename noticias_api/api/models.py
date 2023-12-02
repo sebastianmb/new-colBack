@@ -12,10 +12,7 @@ class News(models.Model):
     author = models.CharField(max_length=100)
     published_date = models.DateTimeField()
     
-    # Opciones para la categoría
-    POLITICS = 'politics'
-    SPORTS = 'sports'
-    TECH = 'tech'
+
     
  
     tags = models.CharField(max_length=255, blank=True)
