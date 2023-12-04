@@ -4,6 +4,7 @@ from django.views import View
 from django.http.response import JsonResponse
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
+import json
 #Models
 from .models import News
 # Create your views here.
@@ -21,6 +22,10 @@ class NewsView(View):
             datos={'message':'Noticias no encontradas...'}
         return JsonResponse(datos)
     def post(self,request):
+        #print(request.body)
+        jd=json.loads(request.body)
+        #print(jd)
+        News.objects.create(title=jd['title'],content=jd['content'],author=jd['author'],published_date=jd['published_date'],tags=jd['tags'])
         datos={'message':"Success"}
         return JsonResponse(datos)
     def put(self,request):
