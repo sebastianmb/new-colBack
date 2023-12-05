@@ -16,7 +16,7 @@ class News(models.Model):
     
  
     tags = models.CharField(max_length=255, blank=True)
-    image = models.ImageField(upload_to='news_images/')
+    image = models.ImageField(upload_to='news/')
 
     def __str__(self):
         return self.title
