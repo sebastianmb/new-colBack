@@ -54,7 +54,12 @@ class NewsView(View):
 
         return JsonResponse({'message': 'Datos recibidos correctamente'})
     
-    def put(self,request):
-        pass
+    def put(self,request, id):
+
+        jd=json.loads(request.body)
+        noticias=list(News.objects.filter(id=id).values())
+            if len(noticias)>0:
+            else:
+                datos={'message':'Noticias no encontradas...'}
     def deleted(self,request):
         pass    
