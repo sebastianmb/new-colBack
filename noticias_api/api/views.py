@@ -58,8 +58,26 @@ class NewsView(View):
 
         jd=json.loads(request.body)
         noticias=list(News.objects.filter(id=id).values())
-            if len(noticias)>0:
-            else:
-                datos={'message':'Noticias no encontradas...'}
-    def deleted(self,request):
-        pass    
+        if len(noticias)>0:
+            noticia= News.objects.get(id=id)
+            noticia.title=jd['title']
+            noticia.content=jd['content']
+            noticia.author=jd['author']
+
+            noticia.save()
+            datos={'message':'Success'}
+
+        else:
+            datos={'message':'Noticias no encontradas...'}
+        
+        return JsonResponse(datos)
+    def delete(self,request, id):
+        
+        noticias=list(News.objects.filter(id=id).values())
+        if len(noticias)>0:
+            noticia= News.objects.filter(id=id).delete()
+            datos={'message':'Success'}
+        else:
+            datos={'message':'Noticias no encontradas...'}
+        return JsonResponse(datos)
+
