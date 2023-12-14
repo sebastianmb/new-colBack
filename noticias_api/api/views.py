@@ -68,7 +68,7 @@ class NewsView(View):
             datos={'message':'Success'}
 
         else:
-            datos={'message':'Noticias no encontradas...'}
+            datos={'message':'Noticia no encontrada...'}
         
         return JsonResponse(datos)
     def delete(self,request, id):
@@ -78,6 +78,6 @@ class NewsView(View):
             noticia= News.objects.filter(id=id).delete()
             datos={'message':'Success'}
         else:
-            datos={'message':'Noticias no encontradas...'}
+            datos={'message':'Noticia no encontrada...'}
         return JsonResponse(datos)
 
