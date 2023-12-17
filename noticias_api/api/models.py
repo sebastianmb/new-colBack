@@ -1,10 +1,6 @@
 from django.db import models
 
-class Category(models.Model):
-    name = models.CharField(max_length=100)
 
-    def __str__(self):
-        return self.name
 
 class News(models.Model):
     title = models.CharField(max_length=255)
@@ -17,6 +13,10 @@ class News(models.Model):
  
     tags = models.CharField(max_length=255, blank=True)
     image = models.ImageField(upload_to='news/')
-
+    def get_image_url(self):
+            if self.image:
+                return self.image.url
+            else:
+                return None  # Opcional: puedes devolver una URL predeterminada si no hay imagen
     def __str__(self):
         return self.title
