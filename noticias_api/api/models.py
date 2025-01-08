@@ -4,6 +4,11 @@ from django.db import models
 
 class News(models.Model):
     title = models.CharField(max_length=255)
+    # Nuevos campos
+    audio = models.FileField(upload_to='news/audio/', blank=True, null=True)  # Campo para el archivo de audio
+    titulo_leccion_gramatica = models.CharField(max_length=255, blank=True)
+    descripcion_gramatica = models.TextField(blank=True)
+    palabras_a_buscar = models.CharField(max_length=255, blank=True)
     content = models.TextField()
     author = models.CharField(max_length=100)
     published_date = models.DateTimeField()
