@@ -24,6 +24,8 @@ class NewsView(View):
                 datos={'message':"Noticia no encontrada" }
             
             return JsonResponse(datos)
+        elif 'reciente' in request.path:
+            return self.noticia_reciente(request)
 
         
         else:
@@ -80,4 +82,11 @@ class NewsView(View):
         else:
             datos={'message':'Noticia no encontrada...'}
         return JsonResponse(datos)
-
+    @method_decorator(csrf_exempt)
+    def noticia_reciente(self, request):
+        noticia = News.objects.latest('published_date')
+        data = {
+            'id': noticia.id,
+        }
+        print(noticia.id)
+        return JsonResponse({'noticia': data})
