@@ -84,15 +84,13 @@ WSGI_APPLICATION = 'noticias_api.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql',
         'HOST':'localhost',
-        'PORT':'3306',
-        'USER':'root',
+        'PORT':'5432',
+        'USER':'postgres',
         'PASSWORD':'P2112',
         'NAME': 'api_noticias',
-        'OPTIONS':{
-            'init_command':"SET sql_mode='STRICT_TRANS_TABLES'"
-        }
+        
     }
 }
 
