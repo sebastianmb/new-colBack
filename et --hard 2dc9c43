@@ -1,0 +1,24 @@
+[33m427f6a4[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Ajuste render urls
+[33m6d5967f[m Ajuste archivo settings hallowed render
+[33mf692e80[m Ajuste v1 wsgi
+[33mf4e27af[m ajuste file wsgi dir settings
+[33mabf503b[m Fixed Dockerfile for render
+[33m5883205[m Add project render file requirements
+[33m2dc9c43[m Add project render
+[33m15b7139[m Migrate db to postgresql
+[33m909985e[m Added View recient news
+[33m68f65a4[m added New charecters to the model
+[33m8e4273a[m Configurado el back en local
+[33m05f26a5[m Se crean noticias para completar las pruebas en el front
+[33mbd36427[m Ajustes previos a configurar el backend recibe el front
+[33m6c5f5b6[m Se configuro correctamente el back para las imagenes
+[33m4ecae59[m Configurado cors desde el back
+[33m4c8f29b[m Finalizado las views metodos back
+[33m909fe09[m realizando el metodo put para actualizar noticias
+[33m0cc2b75[m Configuracion correcta de form para post y recibir files
+[33m2658f2f[m Creado el metodo post leido por la base de datos
+[33m66fa1cc[m Creación metodo post y solucion conflicto csrf
+[33m87ac1a7[m Petición correcta get construida de noticias
+[33m6e01a74[m Conexion correcta con admin
+[33mfad013b[m Conexion correcta con la base de datos
+[33m3d37a9f[m Creacion proyecto backend y conexion base de datos mysql
