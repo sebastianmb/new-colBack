@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-vbb0!^t5mh4603sn6!8^j*5rbaq(-k#&*%o)=o8$bl&n@ykif4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['new-colback.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
