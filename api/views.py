@@ -8,33 +8,41 @@ import json
 #Models
 from .models import News
 # Create your views here.
+from .serializers import NewsSerializer
 
 
 class NewsView(View):
     @method_decorator(csrf_exempt)
     def dispatch(self, request, *args, **kwargs ): 
         return super().dispatch(request, *args, **kwargs)
-    def get(self,request,id=0):
-        if(id>0):
-            noticias=list(News.objects.filter(id=id).values())
-            if len(noticias)>0:
-                noticia=noticias[0]
-                datos={'message':"Success", 'noticia': noticia }
+    def get(self, request, id=0):
+        if id > 0:
+            # Usamos filter(), que ya devuelve un queryset, no es necesario convertirlo a lista
+            noticias = News.objects.filter(id=id)
+
+            if noticias.exists():  # Usamos exists() para comprobar si hay resultados
+                noticia = noticias.first()  # Usamos first() para obtener el primer elemento
+                serializer = NewsSerializer(noticia)
+                datos = {'message': "Success", 'noticia': serializer.data}
             else:
-                datos={'message':"Noticia no encontrada" }
+                datos = {'message': "Noticia no encontrada"}
             
             return JsonResponse(datos)
+        
         elif 'reciente' in request.path:
             return self.noticia_reciente(request)
-
         
         else:
-            noticias=list(News.objects.values())
-            if len(noticias)>0:
-                datos={'message':"Success",'noticias':noticias}
+            noticias = News.objects.all()  # Obtenemos todas las noticias
+            serializer = NewsSerializer(noticias, many=True)
+            
+            if noticias.exists():  # Usamos exists() para comprobar si hay noticias
+                datos = {'message': "Success", 'noticias': serializer.data}
             else:
-                datos={'message':'Noticias no encontradas...'}
+                datos = {'message': 'Noticias no encontradas...'}
+            
             return JsonResponse(datos)
+
     def post(self,request):
         # Obtener los datos del formulario o solicitud POST
         title = request.POST.get('title')
