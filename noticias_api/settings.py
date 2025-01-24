@@ -60,6 +60,8 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
     # Otros orígenes permitidos si los tienes...
+    'https://latambreaking.com',  # Tu dominio personalizado
+    'https://tu-backend.onrender.com',  # Tu backend en Render
 ]
 
 ROOT_URLCONF = 'noticias_api.urls'
