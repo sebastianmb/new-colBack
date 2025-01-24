@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 
 
@@ -17,7 +18,7 @@ class News(models.Model):
     
  
     tags = models.CharField(max_length=255, blank=True)
-    image = models.ImageField(upload_to='news/')
+    imagen = CloudinaryField('imagen',blank=True, null=True)
     def get_image_url(self):
             if self.image:
                 return self.image.url
