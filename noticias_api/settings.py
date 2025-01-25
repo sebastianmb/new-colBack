@@ -60,13 +60,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:5173',
-    # Otros orígenes permitidos si los tienes...
-    'https://latambreaking.com',  # Tu dominio personalizado
-    'https://www.latambreaking.com',  # Agrega el subdominio con "www"
-    'https://tu-backend.onrender.com',  # Tu backend en Render
-]
+CORS_ALLOWED_ORIGINS = True
 
 ROOT_URLCONF = 'noticias_api.urls'
 
