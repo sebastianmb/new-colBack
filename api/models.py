@@ -2,7 +2,7 @@ from django.db import models
 from cloudinary.models import CloudinaryField
 from cloudinary_storage.storage import VideoMediaCloudinaryStorage
 from cloudinary_storage.storage import RawMediaCloudinaryStorage
-from cloudinary_storage.validators import validate_video
+
 
 
 
