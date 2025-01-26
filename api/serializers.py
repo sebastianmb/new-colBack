@@ -8,7 +8,7 @@ class NewsSerializer(serializers.ModelSerializer):
     class Meta:
         model = News
         fields = [
-            'id', 'title', 'audio', 'titulo_leccion_gramatica', 
+            'id', 'title', 'audio','audio_url', 'titulo_leccion_gramatica', 
             'descripcion_gramatica', 'palabras_a_buscar', 'content', 
             'author', 'published_date', 'tags', 'imagen'
         ]
@@ -18,3 +18,6 @@ class NewsSerializer(serializers.ModelSerializer):
         if obj.imagen:
             return obj.imagen.url
         return None
+    def get_audio_url(self, obj):
+        # Llamar al método get_audio_url de tu modelo para obtener la URL correcta
+        return obj.get_audio_url()  # Asegúrate de que el método get_audio_url exista en tu modelo

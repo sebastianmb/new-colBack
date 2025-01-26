@@ -26,6 +26,7 @@ class NewsView(View):
                 datos = {'message': "Success", 'noticia': serializer.data}
             else:
                 datos = {'message': "Noticia no encontrada"}
+                
             
             return JsonResponse(datos)
         
