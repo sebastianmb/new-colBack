@@ -68,6 +68,12 @@ CORS_ALLOWED_ORIGINS = [
     'https://tu-backend.onrender.com',  # Tu backend en Render
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://new-colback.onrender.com',  # Tu dominio en Render
+    'https://latambreaking.com',         # Tu dominio personalizado
+    'https://www.latambreaking.com',     # Subdominio
+    'https://tu-backend.onrender.com',   # Tu backend en Render
+]
 ROOT_URLCONF = 'noticias_api.urls'
 
 TEMPLATES = [
